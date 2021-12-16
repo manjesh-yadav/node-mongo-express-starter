@@ -1,0 +1,32 @@
+{
+  "name": "privacy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev:start": "set NODE_ENV=development && nodemon src/index.js",
+    "stag:start": "set NODE_ENV=staging && node src/index.js",
+    "prod:start": "set NODE_ENV=production && node src/index.js",
+    "clean": "rm -rf node_modules && npm install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/manjesh-yadav/node-mongo-express-starter.git"
+  },
+  "author": "Mike",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.24.0",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "helmet": "^4.6.0",
+    "http-status": "^1.5.0",
+    "joi": "^17.5.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.0.14",
+    "mongoose-sequence": "^5.3.1",
+    "swagger-jsdoc": "^6.1.0",
+    "swagger-ui-express": "^4.2.0"
+  }
+}

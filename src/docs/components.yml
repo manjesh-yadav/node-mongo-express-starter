@@ -1,0 +1,113 @@
+components:
+  schemas:
+    Post:
+      type: object
+      properties:
+        description:
+          type: string
+        price:
+          type: number
+        isCommentDisable:
+          type: boolean
+        schedulePost:
+          type: string
+        media:
+            type: array
+            items:
+              type: object
+              properties:
+                mediaType:
+                  type: string
+                  enum: [image, video, audio]
+                filename:
+                  type: string
+                url:
+                  type: string
+                orderNumber:
+                  type: number
+                xsJsonUrl:
+                  type: string
+                mdJsonUrl:
+                  type: string
+                lgJsonUrl:
+                  type: string
+                audio:
+                  type: string
+                video:
+                  type: string
+                thumb:
+                  type: string
+                
+      example:
+        description: post description
+        price: 1
+        isCommentDisable: true
+        schedulePost: '2022-08-28T11:46:30.120'
+        media:
+        - mediaType: image
+          filename: filename
+          url: url
+          orderNumber: 1
+          xsJsonUrl: '1234'
+          mdJsonUrl: '345'
+          lgJsonUrl: '87654'
+        - mediaType: audio
+          filename: filename
+          url: url
+          audio: 23423w4
+          orderNumber: 2
+        - mediaType: video
+          filename: filename
+          url: url
+          video: 23423w4
+          thumb: thumbnailURL
+          orderNumber: 3
+    Error:
+        type: string
+
+  responses:
+    DuplicateEmail:
+      description: Email already taken
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            code: 400
+            message: Email already taken
+    Unauthorized:
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            code: 401
+            message: Please authenticate
+    Forbidden:
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            code: 403
+            message: Forbidden
+    NotFound:
+      description: Not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            code: 404
+            message: Not found
+
+  securitySchemes:
+    bearerAuth:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: "JWT Authorization header using the Bearer scheme. \n\n Enter Bearer [space] and then your token in the text input below.Example: \n\n \"Bearer 12345abcdef\""
+      scheme: bearer
+      bearerFormat: JWT
