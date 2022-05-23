@@ -1,5 +1,5 @@
-const {createPost} = require('./post.validation')
+const { createUser } = require('./user.validation')
 
 module.exports = {
-    createPost
+    createUser
 }

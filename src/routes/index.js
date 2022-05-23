@@ -1,17 +1,17 @@
 const router = require('express').Router();
-const postRoute = require('./post.route');
-const docsRoute = require('./docs.route');
+const userRoute = require('./user.route');
+const authRoute = require('./auth.route');
 
 
 
 const defaultRoutes = [
   {
-    path: '/post',
-    route: postRoute,
+    path: '/user',
+    route: userRoute,
   },
   {
-    path: '/docs',
-    route: docsRoute,
+    path: '/auth',
+    route: authRoute,
   }
 ];
 

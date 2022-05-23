@@ -1,5 +1,3 @@
-const Joi = require('joi');
-const httpStatus = require('http-status');
 const config = require('../config/config');
 const jwt = require('jsonwebtoken');
 
