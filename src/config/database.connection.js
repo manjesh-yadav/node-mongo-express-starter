@@ -6,7 +6,8 @@ const DB  = mysql.createPool({
   host            : config.mySQL.host,
   user            : config.mySQL.user,
   password        : config.mySQL.password,
-  database        : config.mySQL.database
+  database        : config.mySQL.database,
+  dateStrings     : true
 });
 
 module.exports = DB;
